@@ -15,6 +15,7 @@ export const App = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  console.log(items);
   return (
     <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
       <Box

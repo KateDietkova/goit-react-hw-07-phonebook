@@ -4,12 +4,12 @@ import { ContactListStyled, ContactListItemStyled } from './ContactList.styled';
 import { selectContacts, selectFilterValue } from 'redux/selectors';
 
 export const ContactList = () => {
-  const { contactsList } = useSelector(selectContacts);
+  const { items } = useSelector(selectContacts);
   const filter = useSelector(selectFilterValue);
 
   const visibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    const filterContacts = contactsList.filter(({ name }) =>
+    const filterContacts = items.filter(({ name }) =>
       name.toLowerCase().includes(normalizedFilter)
     );
     return filterContacts;

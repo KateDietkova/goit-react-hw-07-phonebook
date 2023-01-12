@@ -4,13 +4,13 @@ import { deleteContact } from 'redux/operations';
 import { ButtonContactStyled, ContactInfo } from './ContactItem.styled';
 
 export const ContactItem = ({
-  contact: { id, name, number }
+  contact: { id, name, phone }
 }) => {
   const dispatch = useDispatch();
   return (
     <>
       <ContactInfo>
-        {name}: {number}
+        {name}: {phone}
       </ContactInfo>
       <ButtonContactStyled
         type="button"
