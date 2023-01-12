@@ -2,15 +2,18 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Box } from './Box/Box';
-import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectContacts } from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
 
 export const App = () => {
-  const { contactsList } = useSelector(getContacts);
+  const { items } = useSelector(selectContacts);
+  const dispatch = useDispatch();
 
-  if (!contactsList) {
-    return;
-  }
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
@@ -27,7 +30,7 @@ export const App = () => {
       <Box display="flex" flexDirection="column" alignItems="center" p="10px">
         <h2>Contacts</h2>
         <Filter />
-        {contactsList.length > 0 && <ContactList />}
+        {items.length > 0 && <ContactList />}
       </Box>
     </Box>
   );
