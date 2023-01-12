@@ -15,6 +15,7 @@ export const App = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+
   console.log(items);
   return (
     <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
@@ -31,7 +32,7 @@ export const App = () => {
       <Box display="flex" flexDirection="column" alignItems="center" p="10px">
         <h2>Contacts</h2>
         <Filter />
-        {items.length > 0 && <ContactList />}
+        {items && <ContactList />}
       </Box>
     </Box>
   );

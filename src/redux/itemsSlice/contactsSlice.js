@@ -11,7 +11,6 @@ const contactsSlice = createSlice({
 
   extraReducers: {
     [fetchContacts.fulfilled](state, action) {
-      console.log(action.payload);
       state.items = action.payload;
       state.isLoading = false;
       state.error = null;
