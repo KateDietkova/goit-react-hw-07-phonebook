@@ -43,7 +43,6 @@ export const ContactForm = () => {
     }
 
     if (!isName) {
-      console.log(value);
       dispatch(addContact(value));
     }
 
