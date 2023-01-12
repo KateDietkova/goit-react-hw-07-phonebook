@@ -12,14 +12,14 @@ import { selectContacts } from 'redux/selectors';
 
 const initialValue = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 let schema = yup.object().shape({
   name: yup
     .string()
     .required('Name may contain only letters, apostrophe, dash and spaces.'),
-  number: yup
+  phone: yup
     .number()
     .required(
       'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
@@ -43,6 +43,7 @@ export const ContactForm = () => {
     }
 
     if (!isName) {
+      console.log(value);
       dispatch(addContact(value));
     }
 
@@ -70,7 +71,7 @@ export const ContactForm = () => {
           Number
           <FieldStyled
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required

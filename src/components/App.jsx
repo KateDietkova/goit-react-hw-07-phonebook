@@ -16,7 +16,6 @@ export const App = () => {
   }, [dispatch]);
 
 
-  console.log(items);
   return (
     <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
       <Box
