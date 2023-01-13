@@ -44,9 +44,9 @@ export const ContactForm = () => {
 
     if (!isName) {
       dispatch(addContact(value));
+      resetForm();
     }
 
-    resetForm();
   };
 
   return (
